@@ -37,7 +37,15 @@
 
     $('.animated').addClass("hidden-opacity").viewportChecker({
         classToAdd: 'visible ',
-        offset: 100
+        offset: 100,
+        callbackFunction: function(elem, action){
+            var attr = elem.find('.js-viewport-checker').attr('id');
+            if(attr) {
+                $('.navigation-menu a').removeClass('active');
+                $('.navigation-menu a[href="#' + attr + '"]').addClass('active');
+            }
+            
+        }
     });
 
     var $menu = $(".nav-inner"),
@@ -139,6 +147,8 @@ $(function() {
          * @return  {int}       topOffsetPosition   The top offset position
          */
         getTopOffsetPosition: function ($object) {
+            $('.navigation-menu a').removeClass('active');
+            $object.addClass('active');
             var href = $object.attr('href'),
                 $section = $($(href).get(0)),
                 documentHeight = $(document).height(),
