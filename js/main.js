@@ -38,6 +38,7 @@
     $('.animated').addClass("hidden-opacity").viewportChecker({
         classToAdd: 'visible ',
         offset: 100,
+        // repeat: true,
         // callbackFunction: function(elem, action){
         //     var attr = elem.find('.js-viewport-checker').attr('id');
         //     if(attr) {
@@ -46,6 +47,20 @@
         //     }
             
         // }
+    });
+
+     $('.js-viewport-checker').viewportChecker({
+        classToAdd: 'visible ',
+        offset: 10,
+        repeat: true,
+        callbackFunction: function(elem, action){
+            var attr = elem.attr('id');
+            if(attr) {
+                $('.navigation-menu a').removeClass('active');
+                $('.navigation-menu a[href="#' + attr + '"]').addClass('active');
+            }
+            
+        }
     });
 
     var $menu = $(".nav-inner"),
