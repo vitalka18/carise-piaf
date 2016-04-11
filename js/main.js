@@ -38,14 +38,14 @@
     $('.animated').addClass("hidden-opacity").viewportChecker({
         classToAdd: 'visible ',
         offset: 100,
-        callbackFunction: function(elem, action){
-            var attr = elem.find('.js-viewport-checker').attr('id');
-            if(attr) {
-                $('.navigation-menu a').removeClass('active');
-                $('.navigation-menu a[href="#' + attr + '"]').addClass('active');
-            }
+        // callbackFunction: function(elem, action){
+        //     var attr = elem.find('.js-viewport-checker').attr('id');
+        //     if(attr) {
+        //         $('.navigation-menu a').removeClass('active');
+        //         $('.navigation-menu a[href="#' + attr + '"]').addClass('active');
+        //     }
             
-        }
+        // }
     });
 
     var $menu = $(".nav-inner"),
